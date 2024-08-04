@@ -1,122 +1,157 @@
 # Student Performance Prediction
 
-This project is a web application built with Flask that predicts student performance based on various factors such as gender, race/ethnicity, parental level of education, lunch type, test preparation course, reading score, and writing score.
+This project aims to predict student performance based on various features such as gender, ethnicity, parental level of education, lunch type, test preparation course, reading score, and writing score. The project uses machine learning techniques to train a predictive model and provides a Flask web application for user interaction.
 
-## Table of Contents
+## Project Structure
 
-- [Installation](#installation)
-- [Usage](#usage)
-- [Deployment](#deployment)
-- [Contributing](#contributing)
-- [License](#license)
+```plaintext
+.
+├── .abextention
+│   └── python.config
+├── artifacts
+│   ├── data.csv
+│   ├── model.pkl
+│   ├── preprocessor.pkl
+│   ├── test.csv
+│   └── train.csv
+├── notebook
+│   ├── catboost_info/Learn
+│   └── data
+│       ├── stud.csv
+│       ├── 1. EDA STUDENT PERFORMANCE.ipynb
+│       └── 2. MODEL TRAINING.ipynb
+├── src
+│   ├── components
+│   │   ├── __init__.py
+│   │   ├── data_ingestion.py
+│   │   ├── data_transformation.py
+│   │   └── model_trainer.py
+│   ├── pipeline
+│   │   ├── __init__.py
+│   │   ├── predict_pipeline.py
+│   │   ├── train_pipeline.py
+│   │   ├── exception.py
+│   │   ├── logger.py
+│   │   └── utils.py
+├── templates
+│   ├── home.html
+│   └── index.html
+├── .gitignore
+├── README.md
+├── application.py
+├── requirements.txt
+└── setup.py
+```
 
 ## Installation
 
-To get started with this project, follow these steps:
+1. Clone the repository:
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/Abdoo50/Student-Performance-Prediction.git
-   cd Student-Performance-Prediction
-   ```
+    ```sh
+    git clone https://github.com/Abdoo50/Student-Performance-Prediction.git
+    cd Student-Performance-Prediction
+    ```
 
-2. **Create a virtual environment:**
-   ```bash
-   python -m venv venv
-   ```
+2. Create and activate a virtual environment:
 
-3. **Activate the virtual environment:**
-   - On Windows:
-     ```bash
-     venv\Scripts\activate
-     ```
-   - On macOS/Linux:
-     ```bash
-     source venv/bin/activate
-     ```
+    ```sh
+    python -m venv venv
+    source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+    ```
 
-4. **Install the dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
+3. Install the required packages:
 
-## Usage
+    ```sh
+    pip install -r requirements.txt
+    ```
 
-1. **Run the Flask application:**
-   ```bash
-   python app.py
-   ```
+## Running the Application
 
-2. **Open your web browser and navigate to:**
-   ```
-   http://127.0.0.1:5000/
-   ```
+1. Run the Flask application:
 
-3. **Use the web interface to input student data and get predictions.**
+    ```sh
+    python application.py
+    ```
+
+2. Open a web browser and navigate to `http://127.0.0.1:5000/` to access the web interface.
+
+## Project Components
+
+### Notebooks
+
+- `1. EDA STUDENT PERFORMANCE.ipynb`: Exploratory Data Analysis on student performance data.
+- `2. MODEL TRAINING.ipynb`: Training and evaluation of the predictive model.
+
+### Data
+
+- `data/stud.csv`: The dataset used for training and evaluation.
+
+### Artifacts
+
+- `model.pkl`: The trained machine learning model.
+- `preprocessor.pkl`: The preprocessor used for data transformation.
+- `train.csv`, `test.csv`: Training and testing datasets.
+
+### Source Code
+
+- `components/`: Contains modules for data ingestion, transformation, and model training.
+- `pipeline/`: Contains the prediction and training pipelines, along with utility modules.
+- `templates/`: HTML templates for the Flask web application.
 
 ## Deployment
 
-### Deploying to Heroku
+To deploy the application on Heroku:
 
-To deploy this Flask application to Heroku, follow these steps:
+1. Install the Heroku CLI:
 
-1. **Log in to Heroku:**
-   ```bash
-   heroku login
-   ```
+    ```sh
+    curl https://cli-assets.heroku.com/install.sh | sh
+    ```
 
-2. **Create a new Heroku app:**
-   ```bash
-   heroku create your-app-name
-   ```
+2. Log in to Heroku:
 
-3. **Add your files to Git and commit:**
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit"
-   ```
+    ```sh
+    heroku login
+    ```
 
-4. **Push your code to Heroku:**
-   ```bash
-   git push heroku master
-   ```
+3. Create a new Heroku app:
 
-5. **Open your app in a web browser:**
-   ```bash
-   heroku open
-   ```
+    ```sh
+    heroku create
+    ```
 
-### Example Project Structure
+4. Push the code to Heroku:
 
-```
-Student-Performance-Prediction/
-│
-├── app.py
-├── requirements.txt
-├── Procfile
-├── templates/
-│   ├── index.html
-│   └── home.html
-└── src/
-    ├── pipeline/
-    │   ├── predict_pipeline.py
-    │   └── ...
-    ├── exception.py
-    ├── logger.py
-    └── ...
-```
+    ```sh
+    git push heroku master
+    ```
+
+5. Open the deployed app:
+
+    ```sh
+    heroku open
+    ```
+
+## Usage
+
+The web application allows users to input student data and receive a prediction of their performance. The form accepts the following inputs:
+
+- Gender
+- Race or Ethnicity
+- Parental Level of Education
+- Lunch Type
+- Test Preparation Course
+- Writing Score
+- Reading Score
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature-branch`).
-3. Commit your changes (`git commit -m 'Add new feature'`).
-4. Push to the branch (`git push origin feature-branch`).
-5. Open a Pull Request.
+Contributions are welcome! Please create a pull request or open an issue to discuss any changes or improvements.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License.
+
+---
+
+This README provides a comprehensive overview of your project, including instructions for installation, running the application, and deployment on Heroku.
