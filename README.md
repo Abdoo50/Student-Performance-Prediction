@@ -151,7 +151,3 @@ Contributions are welcome! Please create a pull request or open an issue to disc
 ## License
 
 This project is licensed under the MIT License.
-
----
-
-This README provides a comprehensive overview of your project, including instructions for installation, running the application, and deployment on Heroku.
